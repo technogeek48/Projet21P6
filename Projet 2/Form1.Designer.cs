@@ -289,7 +289,7 @@
             this.Controls.Add(this.gbCrit);
             this.Controls.Add(this.gbNoms);
             this.Name = "Form1";
-            this.Text = "Langues Parlées par Michael-John Sakellaropoulos";
+            this.Text = "Langues Parlées (par Michael-John Sakellaropoulos)";
             this.gbNoms.ResumeLayout(false);
             this.gbNoms.PerformLayout();
             this.gbCrit.ResumeLayout(false);
