@@ -79,6 +79,7 @@
             this.btnLecture.TabIndex = 7;
             this.btnLecture.Text = "Lecture des fichiers";
             this.btnLecture.UseVisualStyleBackColor = true;
+            this.btnLecture.Click += new System.EventHandler(this.btnLecture_Click);
             // 
             // tbFichierPaysPop
             // 
@@ -93,7 +94,6 @@
             this.tbFichierLangues.Name = "tbFichierLangues";
             this.tbFichierLangues.Size = new System.Drawing.Size(191, 24);
             this.tbFichierLangues.TabIndex = 5;
-            this.tbFichierLangues.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -156,6 +156,7 @@
             this.rbLesDeux.TabStop = true;
             this.rbLesDeux.Text = "Résultats dans le fichier et à l\'écran";
             this.rbLesDeux.UseVisualStyleBackColor = true;
+            this.rbLesDeux.CheckedChanged += new System.EventHandler(this.rbLesDeux_CheckedChanged);
             // 
             // rbFichier
             // 
@@ -167,6 +168,7 @@
             this.rbFichier.TabStop = true;
             this.rbFichier.Text = "Résulats dans le fichier";
             this.rbFichier.UseVisualStyleBackColor = true;
+            this.rbFichier.CheckedChanged += new System.EventHandler(this.rbFichier_CheckedChanged);
             // 
             // rbEcran
             // 
@@ -178,6 +180,7 @@
             this.rbEcran.TabStop = true;
             this.rbEcran.Text = "Résulats à l\'écran";
             this.rbEcran.UseVisualStyleBackColor = true;
+            this.rbEcran.CheckedChanged += new System.EventHandler(this.rbEcran_CheckedChanged);
             // 
             // btnEffHist
             // 
@@ -187,6 +190,7 @@
             this.btnEffHist.TabIndex = 9;
             this.btnEffHist.Text = "Effacer l\'historique";
             this.btnEffHist.UseVisualStyleBackColor = true;
+            this.btnEffHist.Click += new System.EventHandler(this.btnEffHist_Click);
             // 
             // btnRechercher
             // 
@@ -196,6 +200,7 @@
             this.btnRechercher.TabIndex = 8;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // lbLangues
             // 
@@ -215,6 +220,7 @@
             this.cbPays.TabIndex = 7;
             this.cbPays.Text = "Selon le pays";
             this.cbPays.UseVisualStyleBackColor = true;
+            this.cbPays.CheckedChanged += new System.EventHandler(this.cbPays_CheckedChanged);
             // 
             // cbPaysPlusParle
             // 
@@ -225,7 +231,7 @@
             this.cbPaysPlusParle.TabIndex = 6;
             this.cbPaysPlusParle.Text = "Pays où la langue sélectionnée est la plus parlée";
             this.cbPaysPlusParle.UseVisualStyleBackColor = true;
-            this.cbPaysPlusParle.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.cbPaysPlusParle.CheckedChanged += new System.EventHandler(this.cbPaysPlusParle_CheckedChanged);
             // 
             // cbPaysMoinParle
             // 
@@ -247,7 +253,7 @@
             this.cbTotalLangue.TabIndex = 4;
             this.cbTotalLangue.Text = "Grand total de la langue séléctionnée";
             this.cbTotalLangue.UseVisualStyleBackColor = true;
-            this.cbTotalLangue.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.cbTotalLangue.CheckedChanged += new System.EventHandler(this.cbTotalLangue_CheckedChanged);
             // 
             // cbLangue
             // 
@@ -258,6 +264,7 @@
             this.cbLangue.TabIndex = 3;
             this.cbLangue.Text = "Selon la langue";
             this.cbLangue.UseVisualStyleBackColor = true;
+            this.cbLangue.CheckedChanged += new System.EventHandler(this.cbLangue_CheckedChanged);
             // 
             // gbRes
             // 
@@ -274,6 +281,8 @@
             // lblResultats
             // 
             this.lblResultats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblResultats.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultats.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblResultats.Location = new System.Drawing.Point(3, 20);
             this.lblResultats.Name = "lblResultats";
             this.lblResultats.Size = new System.Drawing.Size(932, 204);
