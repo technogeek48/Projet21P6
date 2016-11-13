@@ -79,6 +79,25 @@ namespace Projet_2
             srFichierLu.Close();
         }
 
+        public void traiterLignePaysPop(ref StreamReader srFichierPop, ref string strNomPays, ref string strNomLangue, ref long longPop)
+        {
+            //A chaque ligne lire 25 chars => pays (string)  // 15 chars => Langue (string) // Le reste de la ligne => Population (long)
+            strNomPays = "";
+            strNomLangue = "";
+            longPop = 0;
+            char[] t_charNomPays = new char[25];
+            char[] t_charNomLangue = new char[15];
+
+            //while(srFichierPop.Peek() != -1)
+            //{
+                srFichierPop.Read(t_charNomPays, 0, t_charNomPays.Length); //Lire NomPays 25char
+                strNomPays = new string(t_charNomPays).Trim().ToUpper();
+                srFichierPop.Read(t_charNomLangue, 0, t_charNomLangue.Length); //Lire NomLangue 15char
+                strNomLangue = new string(t_charNomLangue).Trim().ToUpper();
+                longPop = long.Parse(srFichierPop.ReadLine()); //Lire le reste de la ligne dans longPop
+            //}
+        }
+
         public void traiterPaysPop()
         {
 
@@ -117,7 +136,28 @@ namespace Projet_2
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
+            StreamReader srFichierPaysPop = new StreamReader(tbFichierPaysPop.Text);
+            string strNomPays = "";
+            string strNomLangue = "";
+            long longPop = 0;
+            while(srFichierPaysPop.Peek() != -1)
+            {
+                traiterLignePaysPop(ref srFichierPaysPop, ref strNomPays, ref strNomLangue, ref longPop);
+                lblResultats.Text += string.Format(" > {0} {1} {2}" + Environment.NewLine,strNomPays, strNomLangue, longPop.ToString());
+            }
+            MessageBox.Show(lblResultats.Text);
+            srFichierPaysPop.Close();
 
+            if(cbLangue.Checked == true)
+            {
+                //Recherche selon la langue...
+                //if()
+            }
+            else
+            {
+                //Recherche selon le pays...
+
+            }
         }
 
         private void btnEffHist_Click(object sender, EventArgs e)
