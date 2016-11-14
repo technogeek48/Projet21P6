@@ -124,6 +124,7 @@
             this.tbFichierPaysPop.Name = "tbFichierPaysPop";
             this.tbFichierPaysPop.Size = new System.Drawing.Size(191, 24);
             this.tbFichierPaysPop.TabIndex = 6;
+            this.tbFichierPaysPop.Text = "pays-population.txt";
             // 
             // tbFichierLangues
             // 
@@ -131,6 +132,7 @@
             this.tbFichierLangues.Name = "tbFichierLangues";
             this.tbFichierLangues.Size = new System.Drawing.Size(191, 24);
             this.tbFichierLangues.TabIndex = 5;
+            this.tbFichierLangues.Text = "langues.txt";
             // 
             // label2
             // 

@@ -136,28 +136,52 @@ namespace Projet_2
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
+            lblResultats.ResetText();
+            long longPetit = long.MinValue;
+            long longGrand = long.MaxValue;
+
             StreamReader srFichierPaysPop = new StreamReader(tbFichierPaysPop.Text);
             string strNomPays = "";
             string strNomLangue = "";
             long longPop = 0;
-            while(srFichierPaysPop.Peek() != -1)
-            {
-                traiterLignePaysPop(ref srFichierPaysPop, ref strNomPays, ref strNomLangue, ref longPop);
-                lblResultats.Text += string.Format(" > {0} {1} {2}" + Environment.NewLine,strNomPays, strNomLangue, longPop.ToString());
-            }
-            MessageBox.Show(lblResultats.Text);
-            srFichierPaysPop.Close();
 
             if(cbLangue.Checked == true)
             {
                 //Recherche selon la langue...
-                //if()
+                lblResultats.Text += "Langue choisie : " + (string)lbLangues.SelectedItem + Environment.NewLine;
+                int intCompteur = 0;
+                long longSomme = 0;
+                while (srFichierPaysPop.Peek() != -1)
+                {
+                    traiterLignePaysPop(ref srFichierPaysPop, ref strNomPays, ref strNomLangue, ref longPop);
+                    if (strNomLangue == (string) lbLangues.SelectedItem)
+                    {
+                        intCompteur++;
+                        longSomme += longPop;
+                        lblResultats.Text += string.Format("{0}   :   {1} personnes" + Environment.NewLine, strNomLangue, longPop.ToString());
+                    }
+                }
+                lblResultats.Text += "Il y a " + intCompteur.ToString() + " langues pour une population recensée de " + longSomme.ToString() + " personnes.";
             }
             else
             {
                 //Recherche selon le pays...
-
+                lblResultats.Text += "Données concernant le pays '" + tbPays.Text.ToUpper() + "' :" + Environment.NewLine;
+                int intCompteur = 0;
+                long longSomme = 0;
+                while (srFichierPaysPop.Peek() != -1)
+                {
+                    traiterLignePaysPop(ref srFichierPaysPop, ref strNomPays, ref strNomLangue, ref longPop);
+                    if (strNomPays == tbPays.Text.ToUpper())
+                    {
+                        intCompteur++;
+                        longSomme += longPop;
+                        lblResultats.Text += string.Format("{0}   :   {1} personnes" + Environment.NewLine, strNomLangue, longPop.ToString());
+                    }
+                }
+                lblResultats.Text += "Il y a " + intCompteur.ToString() + " langues pour une population recensée de " + longSomme.ToString() + " personnes.";
             }
+            srFichierPaysPop.Close();
         }
 
         private void btnEffHist_Click(object sender, EventArgs e)
