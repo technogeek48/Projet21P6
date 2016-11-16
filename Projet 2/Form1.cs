@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Projet_2
 {
@@ -18,30 +19,32 @@ namespace Projet_2
             InitializeComponent();
         }
 
-        #region UI Logic functions [Show/Hide...]
-        public void toggleGbNoms()
+        private void Form1_Load(object sender, EventArgs e)
         {
-            foreach(Control ctl in gbNoms.Controls)
+            gbCrit.Enabled = !gbCrit.Enabled;
+        }
+
+        #region Recherche du plus grand et du plus petit
+        public void rechercheDuPlusGrand(ref long longPlusGrand, ref long longComp, ref string strNomGrand, ref string strComp)
+        {
+            if (longComp > longPlusGrand)
             {
-                ctl.Enabled = !ctl.Enabled;
+                longPlusGrand = longComp;
+                strNomGrand = strComp;
             }
         }
 
-        public void toggleGbCrit()
+        public void rechercheDuPlusPetit(ref long longPlusPetit, ref long longComp, ref string strNomPetit, ref string strComp)
         {
-            foreach(Control ctl in gbCrit.Controls)
+            if (longComp < longPlusPetit)
             {
-                ctl.Enabled = !ctl.Enabled;
+                longPlusPetit = longComp;
+                strNomPetit = strComp;
             }
         }
         #endregion
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            toggleGbCrit();
-        }
-
-        #region Browse for files [purely for ease of use]
+        #region Fonctions "Browse" [purement fait pour faciliter la correction]
         public static string browseForFile()
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -63,7 +66,7 @@ namespace Projet_2
         }
         #endregion
 
-        #region Read files [StreamReader]
+        #region Traiter fichiers [StreamReader]
 
         public void traiterFichierLangues()
         {
@@ -79,108 +82,213 @@ namespace Projet_2
             srFichierLu.Close();
         }
 
-        public void traiterLignePaysPop(ref StreamReader srFichierPop, ref string strNomPays, ref string strNomLangue, ref long longPop)
+        public void traiterLignePaysPop(ref string strNomPays, ref string strNomLangue, ref long longPop, ref StreamReader srFichierPop)
         {
-            //A chaque ligne lire 25 chars => pays (string)  // 15 chars => Langue (string) // Le reste de la ligne => Population (long)
+            //Pour une ligne: lire 25 chars => pays (string)  // 15 chars => Langue (string) // Le reste de la ligne => Population (long)
             strNomPays = "";
             strNomLangue = "";
             longPop = 0;
             char[] t_charNomPays = new char[25];
             char[] t_charNomLangue = new char[15];
 
-            //while(srFichierPop.Peek() != -1)
-            //{
-                srFichierPop.Read(t_charNomPays, 0, t_charNomPays.Length); //Lire NomPays 25char
-                strNomPays = new string(t_charNomPays).Trim().ToUpper();
-                srFichierPop.Read(t_charNomLangue, 0, t_charNomLangue.Length); //Lire NomLangue 15char
-                strNomLangue = new string(t_charNomLangue).Trim().ToUpper();
-                longPop = long.Parse(srFichierPop.ReadLine()); //Lire le reste de la ligne dans longPop
-            //}
+            srFichierPop.Read(t_charNomPays, 0, t_charNomPays.Length); //Lire NomPays 25char
+            strNomPays = new string(t_charNomPays).Trim().ToUpper();
+            srFichierPop.Read(t_charNomLangue, 0, t_charNomLangue.Length); //Lire NomLangue 15char
+            strNomLangue = new string(t_charNomLangue).Trim().ToUpper();
+            longPop = long.Parse(srFichierPop.ReadLine()); //Lire le reste de la ligne dans longPop
         }
-
-        public void traiterPaysPop()
-        {
-
-        }
-
         #endregion
+
+        #region Ecrire dans les fichiers [StreamWriter]
+        public void ecrireResultat(string strLigneAEcrire, bool booFichier, bool booEcran, ref StreamWriter swFichierRes)
+        {
+            if (booFichier)
+                swFichierRes.WriteLine(strLigneAEcrire);
+            if (booEcran)
+                lblResultats.Text += strLigneAEcrire + Environment.NewLine;
+        }
+
+        public void ecrireHistorique()
+        {
+            //if (File.Exists("historique.txt"))
+            //    File.Delete("historique.txt");
+
+            StreamWriter swHistorique = new StreamWriter("historique.txt");
+
+            string strDate = DateTime.Now.ToString("", new CultureInfo("fr-CA")); //S'assurer que le format sera respecté n'importe la langue active de l'ordinateur.
+            string strOptAffiche = "";
+            string strOptRecherche = "";
+
+            //Traiter les boutons radio (Par pays)
+            if (rbEcran.Checked)
+                strOptAffiche = "Écran Seulement";
+            else if (rbFichier.Checked)
+                strOptAffiche = "Fichier Seulement";
+            else if (rbLesDeux.Checked)
+                strOptAffiche = "Écran et Fichier";
+
+            //Traiter les options de recherche (Par langue)
+            if (cbTotalLangue.Checked)
+                strOptRecherche += "Grand total, ";
+            if (cbPaysMoinParle.Checked)
+                strOptRecherche += "Moins parlée, ";
+            if (cbPaysPlusParle.Checked)
+                strOptRecherche += "Plus parlée, ";
+
+            if (!cbPays.Checked)
+            {
+                swHistorique.WriteLine(String.Format("{0} --- Recherche (Écran Seulement)    pour la langue : {1}       {2}", strDate, (string)lbLangues.SelectedItem, strOptRecherche.Trim().TrimEnd(','))); //Credit pour l'excellente idee .trimEnd() a simon boyer
+            }
+            else
+            {
+                swHistorique.WriteLine(String.Format("{0} --- Recherche ({1}) pour le pays   : {2}"), strDate, strOptAffiche, tbPays.Text.ToUpper().Trim()); 
+            }
+            swHistorique.Close();
+        }
+
+        public void ecrireTousLesEcrans()
+        {
+            StreamWriter swEcrans = new StreamWriter("tous-les-ecrans.txt");
+            swEcrans.Close();
+        }
+        #endregion
+
+        
 
         private void btnLecture_Click(object sender, EventArgs e)
         {
             if (tbFichierLangues.Text == "")
-            {
                 MessageBox.Show("Aucun fichier des langues saisi!");
-            }
             else if (File.Exists(tbFichierLangues.Text) == false)
-            {
                 MessageBox.Show("Le fichier des langues " + tbFichierLangues.Text + " est introuvable!");
-            }
             else if (tbFichierPaysPop.Text == "")
-            {
                 MessageBox.Show("Aucun fichier des pays/population sasi!");
-            }
             else if (File.Exists(tbFichierPaysPop.Text) == false)
-            {
                 MessageBox.Show("Le fichier des pays/population " + tbFichierPaysPop.Text + " est introuvable!");
-            }
             else
-            {
-                //Valide
-                toggleGbNoms();
-                toggleGbCrit();
+            {   //Valide
+                gbNoms.Enabled = !gbNoms.Enabled;
+                gbCrit.Enabled = !gbCrit.Enabled;
                 lblResultats.Text = "Chargement complété ..." + Environment.NewLine;
                 traiterFichierLangues();
                 cbLangue.Checked = true;
+                lbLangues.SelectedIndex = 0;
             }
         }
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             lblResultats.ResetText();
-            long longPetit = long.MinValue;
-            long longGrand = long.MaxValue;
 
             StreamReader srFichierPaysPop = new StreamReader(tbFichierPaysPop.Text);
+            StreamWriter swFichierResultats = new StreamWriter("resultats.txt");
+
+            long longPopPlusParle = long.MinValue;
+            long longPopMoinsParle = long.MaxValue;
+            string strNomPaysMoinParle = "";
+            string strNomPaysPlusParle = "";
+
             string strNomPays = "";
             string strNomLangue = "";
             long longPop = 0;
 
-            if(cbLangue.Checked == true)
+            int intCompteur = 0;
+            long longSomme = 0;
+            long longMoyenne = 0;
+
+            bool booFichier = false;
+            bool booEcran = false;
+
+            //Traiter boutons radios
+            if (rbEcran.Checked)
+                booEcran = true;
+            else if (rbFichier.Checked)
+                booFichier = true;
+            else if (rbLesDeux.Checked)
+            {
+                booFichier = true;
+                booEcran = true;
+            }
+
+            string strSelect = "";
+
+            if (cbLangue.Checked == true)
             {
                 //Recherche selon la langue...
-                lblResultats.Text += "Langue choisie : " + (string)lbLangues.SelectedItem + Environment.NewLine;
-                int intCompteur = 0;
-                long longSomme = 0;
+                if (lbLangues.SelectedItem != null)
+                {
+                    strSelect = ((string)lbLangues.SelectedItem).ToUpper();
+                }
+                else
+                {
+                    lblResultats.Text = "";
+                    MessageBox.Show("Erreur: Aucune langue choisie");
+                }
+
+                ecrireResultat("Langue choisie : " + strSelect + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                longSomme = 0;
+                intCompteur = 0;
                 while (srFichierPaysPop.Peek() != -1)
                 {
-                    traiterLignePaysPop(ref srFichierPaysPop, ref strNomPays, ref strNomLangue, ref longPop);
-                    if (strNomLangue == (string) lbLangues.SelectedItem)
+                    traiterLignePaysPop(ref strNomPays, ref strNomLangue, ref longPop, ref srFichierPaysPop);
+                    if (strNomLangue == strSelect)
                     {
                         intCompteur++;
                         longSomme += longPop;
-                        lblResultats.Text += string.Format("{0}   :   {1} personnes" + Environment.NewLine, strNomLangue, longPop.ToString());
+                        rechercheDuPlusGrand(ref longPopPlusParle, ref longPop, ref strNomPaysPlusParle, ref strNomPays);
+                        rechercheDuPlusPetit(ref longPopMoinsParle, ref longPop, ref strNomPaysMoinParle, ref strNomPays);
                     }
                 }
-                lblResultats.Text += "Il y a " + intCompteur.ToString() + " langues pour une population recensée de " + longSomme.ToString() + " personnes.";
+
+                if(intCompteur != 0)
+                    longMoyenne = (longSomme) / (long)intCompteur;
+
+                ecrireResultat("Cette langues est parlée dans " + intCompteur.ToString("n0") + " pays." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                if (cbTotalLangue.Checked)
+                {
+                    ecrireResultat("Le nombre total de personnes parlant " + strSelect + " est " + longSomme.ToString("n0") + " personnes." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                    ecrireResultat("La moyenne par pays est " + longMoyenne.ToString("n0") + " personnes." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                }
+                if (cbPaysMoinParle.Checked)
+                {
+                    ecrireResultat("Le pays où l'on parle le moins " + strSelect + " est " + strNomPaysMoinParle + " avec " + longPopMoinsParle.ToString("n0") + " personnes." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                }
+                if (cbPaysPlusParle.Checked)
+                {
+                    ecrireResultat("Le pays où l'on parle le plus " + strSelect + " est " + strNomPaysPlusParle + " avec " + longPopPlusParle.ToString("n0") + " personnes." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                }
             }
             else
             {
                 //Recherche selon le pays...
-                lblResultats.Text += "Données concernant le pays '" + tbPays.Text.ToUpper() + "' :" + Environment.NewLine;
-                int intCompteur = 0;
-                long longSomme = 0;
+                longSomme = 0;
+                intCompteur = 0;
                 while (srFichierPaysPop.Peek() != -1)
                 {
-                    traiterLignePaysPop(ref srFichierPaysPop, ref strNomPays, ref strNomLangue, ref longPop);
+                    traiterLignePaysPop( ref strNomPays, ref strNomLangue, ref longPop, ref srFichierPaysPop);
                     if (strNomPays == tbPays.Text.ToUpper())
                     {
                         intCompteur++;
                         longSomme += longPop;
-                        lblResultats.Text += string.Format("{0}   :   {1} personnes" + Environment.NewLine, strNomLangue, longPop.ToString());
+                        ecrireResultat(string.Format("{0}   :   {1} personnes" + Environment.NewLine, strNomLangue, longPop.ToString("n0")), booFichier, booEcran, ref swFichierResultats);
                     }
                 }
-                lblResultats.Text += "Il y a " + intCompteur.ToString() + " langues pour une population recensée de " + longSomme.ToString() + " personnes.";
+
+                if(intCompteur > 0)
+                {
+                    ecrireResultat("Données concernant le pays '" + tbPays.Text.ToUpper() + "' :" + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                    ecrireResultat("Il y a " + intCompteur.ToString("n0") + " langues pour une population recensée de " + longSomme.ToString("n0") + " personnes.", booFichier, booEcran, ref swFichierResultats);
+                }
+                else
+                {
+                    MessageBox.Show(String.Format("Le pays {0} n'a pas été trouvée dans le fichier {1}", tbPays.Text, tbFichierPaysPop.Text));
+                }
             }
+
+            ecrireHistorique();
+            ecrireTousLesEcrans();
+
+            swFichierResultats.Close();
             srFichierPaysPop.Close();
         }
 
@@ -191,7 +299,7 @@ namespace Projet_2
 
         private void cbLangue_CheckedChanged(object sender, EventArgs e)
         {
-
+            cbLangue.Checked = true; //Fires three times for some reason, then, yields?
         }
 
         private void cbTotalLangue_CheckedChanged(object sender, EventArgs e)
@@ -211,12 +319,11 @@ namespace Projet_2
 
         private void cbPays_CheckedChanged(object sender, EventArgs e)
         {
-            List<Control> lstControles = new List<Control> { cbLangue, lbLangues, cbTotalLangue, cbPaysMoinParle, cbPaysPlusParle };
+            //Logique pour basculer les controles selon l'état de cbPays
             cbLangue.Checked = !cbLangue.Checked;
+            List<Control> lstControles = new List<Control> { cbLangue, lbLangues, cbTotalLangue, cbPaysMoinParle, cbPaysPlusParle };
             foreach (Control ctl in lstControles)
-            {
-                ctl.Enabled = !ctl.Enabled;
-            }
+                ctl.Enabled = !ctl.Enabled; //Basculer chaque controle
 
             if(rbFichier.Checked || rbLesDeux.Checked)
             {
@@ -244,7 +351,5 @@ namespace Projet_2
         {
 
         }
-
-        
     }
 }

@@ -181,7 +181,7 @@
             this.tbPays.Location = new System.Drawing.Point(144, 195);
             this.tbPays.Name = "tbPays";
             this.tbPays.Size = new System.Drawing.Size(176, 24);
-            this.tbPays.TabIndex = 14;
+            this.tbPays.TabIndex = 16;
             this.tbPays.Visible = false;
             // 
             // picImgLang
@@ -200,7 +200,7 @@
             this.rbLesDeux.Location = new System.Drawing.Point(440, 137);
             this.rbLesDeux.Name = "rbLesDeux";
             this.rbLesDeux.Size = new System.Drawing.Size(257, 22);
-            this.rbLesDeux.TabIndex = 12;
+            this.rbLesDeux.TabIndex = 20;
             this.rbLesDeux.Text = "Résultats dans le fichier et à l\'écran";
             this.rbLesDeux.UseVisualStyleBackColor = true;
             this.rbLesDeux.CheckedChanged += new System.EventHandler(this.rbLesDeux_CheckedChanged);
@@ -211,7 +211,7 @@
             this.rbFichier.Location = new System.Drawing.Point(440, 109);
             this.rbFichier.Name = "rbFichier";
             this.rbFichier.Size = new System.Drawing.Size(178, 22);
-            this.rbFichier.TabIndex = 11;
+            this.rbFichier.TabIndex = 19;
             this.rbFichier.Text = "Résulats dans le fichier";
             this.rbFichier.UseVisualStyleBackColor = true;
             this.rbFichier.CheckedChanged += new System.EventHandler(this.rbFichier_CheckedChanged);
@@ -223,7 +223,7 @@
             this.rbEcran.Location = new System.Drawing.Point(440, 81);
             this.rbEcran.Name = "rbEcran";
             this.rbEcran.Size = new System.Drawing.Size(143, 22);
-            this.rbEcran.TabIndex = 10;
+            this.rbEcran.TabIndex = 18;
             this.rbEcran.TabStop = true;
             this.rbEcran.Text = "Résulats à l\'écran";
             this.rbEcran.UseVisualStyleBackColor = true;
@@ -234,7 +234,7 @@
             this.btnEffHist.Location = new System.Drawing.Point(440, 186);
             this.btnEffHist.Name = "btnEffHist";
             this.btnEffHist.Size = new System.Drawing.Size(175, 30);
-            this.btnEffHist.TabIndex = 9;
+            this.btnEffHist.TabIndex = 21;
             this.btnEffHist.Text = "Effacer l\'historique";
             this.btnEffHist.UseVisualStyleBackColor = true;
             this.btnEffHist.Click += new System.EventHandler(this.btnEffHist_Click);
@@ -244,7 +244,7 @@
             this.btnRechercher.Location = new System.Drawing.Point(440, 23);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(175, 30);
-            this.btnRechercher.TabIndex = 8;
+            this.btnRechercher.TabIndex = 17;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
             this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
@@ -256,7 +256,7 @@
             this.lbLangues.Location = new System.Drawing.Point(53, 60);
             this.lbLangues.Name = "lbLangues";
             this.lbLangues.Size = new System.Drawing.Size(267, 40);
-            this.lbLangues.TabIndex = 8;
+            this.lbLangues.TabIndex = 11;
             // 
             // cbPays
             // 
@@ -264,7 +264,7 @@
             this.cbPays.Location = new System.Drawing.Point(22, 194);
             this.cbPays.Name = "cbPays";
             this.cbPays.Size = new System.Drawing.Size(115, 22);
-            this.cbPays.TabIndex = 7;
+            this.cbPays.TabIndex = 15;
             this.cbPays.Text = "Selon le pays";
             this.cbPays.UseVisualStyleBackColor = true;
             this.cbPays.CheckedChanged += new System.EventHandler(this.cbPays_CheckedChanged);
@@ -275,7 +275,7 @@
             this.cbPaysPlusParle.Location = new System.Drawing.Point(53, 166);
             this.cbPaysPlusParle.Name = "cbPaysPlusParle";
             this.cbPaysPlusParle.Size = new System.Drawing.Size(344, 22);
-            this.cbPaysPlusParle.TabIndex = 6;
+            this.cbPaysPlusParle.TabIndex = 14;
             this.cbPaysPlusParle.Text = "Pays où la langue sélectionnée est la plus parlée";
             this.cbPaysPlusParle.UseVisualStyleBackColor = true;
             this.cbPaysPlusParle.CheckedChanged += new System.EventHandler(this.cbPaysPlusParle_CheckedChanged);
@@ -286,7 +286,7 @@
             this.cbPaysMoinParle.Location = new System.Drawing.Point(53, 138);
             this.cbPaysMoinParle.Name = "cbPaysMoinParle";
             this.cbPaysMoinParle.Size = new System.Drawing.Size(358, 22);
-            this.cbPaysMoinParle.TabIndex = 5;
+            this.cbPaysMoinParle.TabIndex = 13;
             this.cbPaysMoinParle.Text = "Pays où la langue sélectionnée est la moins parlée";
             this.cbPaysMoinParle.UseVisualStyleBackColor = true;
             this.cbPaysMoinParle.CheckedChanged += new System.EventHandler(this.cbPaysMoinParle_CheckedChanged);
@@ -297,7 +297,7 @@
             this.cbTotalLangue.Location = new System.Drawing.Point(53, 110);
             this.cbTotalLangue.Name = "cbTotalLangue";
             this.cbTotalLangue.Size = new System.Drawing.Size(269, 22);
-            this.cbTotalLangue.TabIndex = 4;
+            this.cbTotalLangue.TabIndex = 12;
             this.cbTotalLangue.Text = "Grand total de la langue séléctionnée";
             this.cbTotalLangue.UseVisualStyleBackColor = true;
             this.cbTotalLangue.CheckedChanged += new System.EventHandler(this.cbTotalLangue_CheckedChanged);
@@ -308,7 +308,7 @@
             this.cbLangue.Location = new System.Drawing.Point(22, 32);
             this.cbLangue.Name = "cbLangue";
             this.cbLangue.Size = new System.Drawing.Size(127, 22);
-            this.cbLangue.TabIndex = 3;
+            this.cbLangue.TabIndex = 10;
             this.cbLangue.Text = "Selon la langue";
             this.cbLangue.UseVisualStyleBackColor = true;
             this.cbLangue.CheckedChanged += new System.EventHandler(this.cbLangue_CheckedChanged);
@@ -340,11 +340,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 635);
+            this.ClientSize = new System.Drawing.Size(889, 618);
             this.Controls.Add(this.gbRes);
             this.Controls.Add(this.gbCrit);
             this.Controls.Add(this.gbNoms);
-            this.MaximumSize = new System.Drawing.Size(911, 674);
+            this.MaximumSize = new System.Drawing.Size(909, 668);
             this.Name = "Form1";
             this.Text = "Langues Parlées (par Michael-John Sakellaropoulos)";
             this.Load += new System.EventHandler(this.Form1_Load);
