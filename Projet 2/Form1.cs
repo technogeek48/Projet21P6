@@ -108,6 +108,26 @@ namespace Projet_2
                 lblResultats.Text += strLigneAEcrire + Environment.NewLine;
         }
 
+        public void ecrireSeparateur(bool booFichier, ref StreamWriter swFichierRes)
+        {
+            if (booFichier)
+                swFichierRes.WriteLine(new String('-',73));
+        }
+
+        public void ecrireDate(bool booFichier, ref StreamWriter swFichierRes)
+        {
+            DateTime dtMaintenant = DateTime.Now;
+            CultureInfo ciFrancaisCanada = new CultureInfo("fr-CA"); //Obtenir le CultureInfo pour francais canada
+            //Obtenir le DateTimeFormat pour frCA et utiliser la methode GetMonthName pour obtenir le mois ecrit en francais, cela nous sauve de faire un mechant Switch/Case
+            string strMoisFrancais = ciFrancaisCanada.DateTimeFormat.GetMonthName(dtMaintenant.Month);
+
+            if (booFichier)
+            {
+                ecrireSeparateur(booFichier, ref swFichierRes);
+                swFichierRes.WriteLine(String.Format("Fin des resultats de la recherche effectuée le {0} {1} de l'année {2}", dtMaintenant.Day, strMoisFrancais, dtMaintenant.Year));
+            }
+        }
+
         public void ecrireHistorique()
         {
             //if (File.Exists("historique.txt"))
@@ -244,6 +264,7 @@ namespace Projet_2
                     longMoyenne = (longSomme) / (long)intCompteur;
 
                 ecrireResultat("Cette langues est parlée dans " + intCompteur.ToString("n0") + " pays." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
+                ecrireSeparateur(booFichier, ref swFichierResultats);
                 if (cbTotalLangue.Checked)
                 {
                     ecrireResultat("Le nombre total de personnes parlant " + strSelect + " est " + longSomme.ToString("n0") + " personnes." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
@@ -257,6 +278,7 @@ namespace Projet_2
                 {
                     ecrireResultat("Le pays où l'on parle le plus " + strSelect + " est " + strNomPaysPlusParle + " avec " + longPopPlusParle.ToString("n0") + " personnes." + Environment.NewLine, booFichier, booEcran, ref swFichierResultats);
                 }
+                ecrireDate(booFichier, ref swFichierResultats);
             }
             else
             {
