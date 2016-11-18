@@ -3,9 +3,12 @@ D:\PROJET 2 1P6\Projet 2\Projet 2\bin\Debug\Projet 2.exe.config
 Z:\PROJET 2 1P6\Projet 2\Projet 2\bin\Debug\Projet 2.exe.config
 Z:\PROJET 2 1P6\Projet 2\Projet 2\bin\Debug\Projet 2.exe
 Z:\PROJET 2 1P6\Projet 2\Projet 2\bin\Debug\Projet 2.pdb
-Z:\PROJET 2 1P6\Projet 2\Projet 2\obj\Debug\Projet 2.csprojResolveAssemblyReference.cache
 Z:\PROJET 2 1P6\Projet 2\Projet 2\obj\Debug\Projet_2.Form1.resources
 Z:\PROJET 2 1P6\Projet 2\Projet 2\obj\Debug\Projet_2.Properties.Resources.resources
 Z:\PROJET 2 1P6\Projet 2\Projet 2\obj\Debug\Projet 2.csproj.GenerateResource.Cache
 Z:\PROJET 2 1P6\Projet 2\Projet 2\obj\Debug\Projet 2.exe
 Z:\PROJET 2 1P6\Projet 2\Projet 2\obj\Debug\Projet 2.pdb
+Z:\PROJET 2 1P6\Projet 2\Projet 2\obj\Debug\Projet 2.csprojResolveAssemblyReference.cache
+Z:\Projet 2 - Sakellaropoulos, Michael-John\Projet 2\Projet 2\bin\Debug\Projet 2.exe.config
+Z:\Projet 2 - Sakellaropoulos, Michael-John\Projet 2\Projet 2\obj\Debug\Projet 2.exe
+Z:\Projet 2 - Sakellaropoulos, Michael-John\Projet 2\Projet 2\obj\Debug\Projet 2.pdb

@@ -71,9 +71,11 @@
             this.gbNoms.Controls.Add(this.label2);
             this.gbNoms.Controls.Add(this.label1);
             this.gbNoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbNoms.Location = new System.Drawing.Point(12, 12);
+            this.gbNoms.Location = new System.Drawing.Point(18, 18);
+            this.gbNoms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbNoms.Name = "gbNoms";
-            this.gbNoms.Size = new System.Drawing.Size(870, 102);
+            this.gbNoms.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbNoms.Size = new System.Drawing.Size(1305, 157);
             this.gbNoms.TabIndex = 0;
             this.gbNoms.TabStop = false;
             this.gbNoms.Text = "1. Noms des fichiers à utiliser";
@@ -82,17 +84,19 @@
             // 
             this.lblNotice.AutoSize = true;
             this.lblNotice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotice.Location = new System.Drawing.Point(127, 83);
+            this.lblNotice.Location = new System.Drawing.Point(190, 128);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNotice.Name = "lblNotice";
-            this.lblNotice.Size = new System.Drawing.Size(385, 16);
+            this.lblNotice.Size = new System.Drawing.Size(557, 25);
             this.lblNotice.TabIndex = 10;
             this.lblNotice.Text = "Les fichiers doivent être dans le même dossier que l\'executable";
             // 
             // btnBrowsePaysPop
             // 
-            this.btnBrowsePaysPop.Location = new System.Drawing.Point(417, 57);
+            this.btnBrowsePaysPop.Location = new System.Drawing.Point(626, 88);
+            this.btnBrowsePaysPop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBrowsePaysPop.Name = "btnBrowsePaysPop";
-            this.btnBrowsePaysPop.Size = new System.Drawing.Size(31, 24);
+            this.btnBrowsePaysPop.Size = new System.Drawing.Size(46, 37);
             this.btnBrowsePaysPop.TabIndex = 9;
             this.btnBrowsePaysPop.Text = "...";
             this.btnBrowsePaysPop.UseVisualStyleBackColor = true;
@@ -100,9 +104,10 @@
             // 
             // btnBrowseLangues
             // 
-            this.btnBrowseLangues.Location = new System.Drawing.Point(417, 23);
+            this.btnBrowseLangues.Location = new System.Drawing.Point(626, 35);
+            this.btnBrowseLangues.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBrowseLangues.Name = "btnBrowseLangues";
-            this.btnBrowseLangues.Size = new System.Drawing.Size(31, 24);
+            this.btnBrowseLangues.Size = new System.Drawing.Size(46, 37);
             this.btnBrowseLangues.TabIndex = 8;
             this.btnBrowseLangues.Text = "...";
             this.btnBrowseLangues.UseVisualStyleBackColor = true;
@@ -110,9 +115,10 @@
             // 
             // btnLecture
             // 
-            this.btnLecture.Location = new System.Drawing.Point(454, 23);
+            this.btnLecture.Location = new System.Drawing.Point(681, 35);
+            this.btnLecture.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLecture.Name = "btnLecture";
-            this.btnLecture.Size = new System.Drawing.Size(175, 58);
+            this.btnLecture.Size = new System.Drawing.Size(262, 89);
             this.btnLecture.TabIndex = 7;
             this.btnLecture.Text = "Lecture des fichiers";
             this.btnLecture.UseVisualStyleBackColor = true;
@@ -120,35 +126,39 @@
             // 
             // tbFichierPaysPop
             // 
-            this.tbFichierPaysPop.Location = new System.Drawing.Point(220, 57);
+            this.tbFichierPaysPop.Location = new System.Drawing.Point(330, 88);
+            this.tbFichierPaysPop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbFichierPaysPop.Name = "tbFichierPaysPop";
-            this.tbFichierPaysPop.Size = new System.Drawing.Size(191, 24);
+            this.tbFichierPaysPop.Size = new System.Drawing.Size(284, 33);
             this.tbFichierPaysPop.TabIndex = 6;
             this.tbFichierPaysPop.Text = "pays-population.txt";
             // 
             // tbFichierLangues
             // 
-            this.tbFichierLangues.Location = new System.Drawing.Point(220, 23);
+            this.tbFichierLangues.Location = new System.Drawing.Point(330, 35);
+            this.tbFichierLangues.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbFichierLangues.Name = "tbFichierLangues";
-            this.tbFichierLangues.Size = new System.Drawing.Size(191, 24);
+            this.tbFichierLangues.Size = new System.Drawing.Size(284, 33);
             this.tbFichierLangues.TabIndex = 5;
             this.tbFichierLangues.Text = "langues.txt";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 60);
+            this.label2.Location = new System.Drawing.Point(28, 92);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 18);
+            this.label2.Size = new System.Drawing.Size(327, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Fichier des pays/populations:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 29);
+            this.label1.Location = new System.Drawing.Point(28, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 18);
+            this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Fichier des langues:";
             // 
@@ -169,27 +179,31 @@
             this.gbCrit.Controls.Add(this.cbTotalLangue);
             this.gbCrit.Controls.Add(this.cbLangue);
             this.gbCrit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCrit.Location = new System.Drawing.Point(12, 120);
+            this.gbCrit.Location = new System.Drawing.Point(18, 185);
+            this.gbCrit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbCrit.Name = "gbCrit";
-            this.gbCrit.Size = new System.Drawing.Size(870, 239);
+            this.gbCrit.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbCrit.Size = new System.Drawing.Size(1305, 368);
             this.gbCrit.TabIndex = 1;
             this.gbCrit.TabStop = false;
             this.gbCrit.Text = "2. Critères de recherche";
             // 
             // tbPays
             // 
-            this.tbPays.Location = new System.Drawing.Point(144, 195);
+            this.tbPays.Location = new System.Drawing.Point(216, 300);
+            this.tbPays.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbPays.Name = "tbPays";
-            this.tbPays.Size = new System.Drawing.Size(176, 24);
+            this.tbPays.Size = new System.Drawing.Size(262, 33);
             this.tbPays.TabIndex = 16;
             this.tbPays.Visible = false;
             // 
             // picImgLang
             // 
             this.picImgLang.Image = global::Projet_2.Properties.Resources.imgLang;
-            this.picImgLang.Location = new System.Drawing.Point(640, 16);
+            this.picImgLang.Location = new System.Drawing.Point(960, 25);
+            this.picImgLang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picImgLang.Name = "picImgLang";
-            this.picImgLang.Size = new System.Drawing.Size(215, 116);
+            this.picImgLang.Size = new System.Drawing.Size(322, 178);
             this.picImgLang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImgLang.TabIndex = 13;
             this.picImgLang.TabStop = false;
@@ -197,43 +211,44 @@
             // rbLesDeux
             // 
             this.rbLesDeux.AutoSize = true;
-            this.rbLesDeux.Location = new System.Drawing.Point(440, 137);
+            this.rbLesDeux.Location = new System.Drawing.Point(660, 211);
+            this.rbLesDeux.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbLesDeux.Name = "rbLesDeux";
-            this.rbLesDeux.Size = new System.Drawing.Size(257, 22);
+            this.rbLesDeux.Size = new System.Drawing.Size(413, 33);
             this.rbLesDeux.TabIndex = 20;
             this.rbLesDeux.Text = "Résultats dans le fichier et à l\'écran";
             this.rbLesDeux.UseVisualStyleBackColor = true;
-            this.rbLesDeux.CheckedChanged += new System.EventHandler(this.rbLesDeux_CheckedChanged);
             // 
             // rbFichier
             // 
             this.rbFichier.AutoSize = true;
-            this.rbFichier.Location = new System.Drawing.Point(440, 109);
+            this.rbFichier.Location = new System.Drawing.Point(660, 168);
+            this.rbFichier.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbFichier.Name = "rbFichier";
-            this.rbFichier.Size = new System.Drawing.Size(178, 22);
+            this.rbFichier.Size = new System.Drawing.Size(286, 33);
             this.rbFichier.TabIndex = 19;
             this.rbFichier.Text = "Résulats dans le fichier";
             this.rbFichier.UseVisualStyleBackColor = true;
-            this.rbFichier.CheckedChanged += new System.EventHandler(this.rbFichier_CheckedChanged);
             // 
             // rbEcran
             // 
             this.rbEcran.AutoSize = true;
             this.rbEcran.Checked = true;
-            this.rbEcran.Location = new System.Drawing.Point(440, 81);
+            this.rbEcran.Location = new System.Drawing.Point(660, 125);
+            this.rbEcran.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbEcran.Name = "rbEcran";
-            this.rbEcran.Size = new System.Drawing.Size(143, 22);
+            this.rbEcran.Size = new System.Drawing.Size(226, 33);
             this.rbEcran.TabIndex = 18;
             this.rbEcran.TabStop = true;
             this.rbEcran.Text = "Résulats à l\'écran";
             this.rbEcran.UseVisualStyleBackColor = true;
-            this.rbEcran.CheckedChanged += new System.EventHandler(this.rbEcran_CheckedChanged);
             // 
             // btnEffHist
             // 
-            this.btnEffHist.Location = new System.Drawing.Point(440, 186);
+            this.btnEffHist.Location = new System.Drawing.Point(660, 286);
+            this.btnEffHist.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEffHist.Name = "btnEffHist";
-            this.btnEffHist.Size = new System.Drawing.Size(175, 30);
+            this.btnEffHist.Size = new System.Drawing.Size(262, 46);
             this.btnEffHist.TabIndex = 21;
             this.btnEffHist.Text = "Effacer l\'historique";
             this.btnEffHist.UseVisualStyleBackColor = true;
@@ -241,9 +256,10 @@
             // 
             // btnRechercher
             // 
-            this.btnRechercher.Location = new System.Drawing.Point(440, 23);
+            this.btnRechercher.Location = new System.Drawing.Point(660, 35);
+            this.btnRechercher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(175, 30);
+            this.btnRechercher.Size = new System.Drawing.Size(262, 46);
             this.btnRechercher.TabIndex = 17;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
@@ -252,18 +268,20 @@
             // lbLangues
             // 
             this.lbLangues.FormattingEnabled = true;
-            this.lbLangues.ItemHeight = 18;
-            this.lbLangues.Location = new System.Drawing.Point(53, 60);
+            this.lbLangues.ItemHeight = 29;
+            this.lbLangues.Location = new System.Drawing.Point(80, 92);
+            this.lbLangues.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbLangues.Name = "lbLangues";
-            this.lbLangues.Size = new System.Drawing.Size(267, 40);
+            this.lbLangues.Size = new System.Drawing.Size(398, 62);
             this.lbLangues.TabIndex = 11;
             // 
             // cbPays
             // 
             this.cbPays.AutoSize = true;
-            this.cbPays.Location = new System.Drawing.Point(22, 194);
+            this.cbPays.Location = new System.Drawing.Point(33, 298);
+            this.cbPays.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbPays.Name = "cbPays";
-            this.cbPays.Size = new System.Drawing.Size(115, 22);
+            this.cbPays.Size = new System.Drawing.Size(184, 33);
             this.cbPays.TabIndex = 15;
             this.cbPays.Text = "Selon le pays";
             this.cbPays.UseVisualStyleBackColor = true;
@@ -272,42 +290,44 @@
             // cbPaysPlusParle
             // 
             this.cbPaysPlusParle.AutoSize = true;
-            this.cbPaysPlusParle.Location = new System.Drawing.Point(53, 166);
+            this.cbPaysPlusParle.Location = new System.Drawing.Point(80, 255);
+            this.cbPaysPlusParle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbPaysPlusParle.Name = "cbPaysPlusParle";
-            this.cbPaysPlusParle.Size = new System.Drawing.Size(344, 22);
+            this.cbPaysPlusParle.Size = new System.Drawing.Size(561, 33);
             this.cbPaysPlusParle.TabIndex = 14;
             this.cbPaysPlusParle.Text = "Pays où la langue sélectionnée est la plus parlée";
             this.cbPaysPlusParle.UseVisualStyleBackColor = true;
-            this.cbPaysPlusParle.CheckedChanged += new System.EventHandler(this.cbPaysPlusParle_CheckedChanged);
             // 
             // cbPaysMoinParle
             // 
             this.cbPaysMoinParle.AutoSize = true;
-            this.cbPaysMoinParle.Location = new System.Drawing.Point(53, 138);
+            this.cbPaysMoinParle.Location = new System.Drawing.Point(80, 212);
+            this.cbPaysMoinParle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbPaysMoinParle.Name = "cbPaysMoinParle";
-            this.cbPaysMoinParle.Size = new System.Drawing.Size(358, 22);
+            this.cbPaysMoinParle.Size = new System.Drawing.Size(581, 33);
             this.cbPaysMoinParle.TabIndex = 13;
             this.cbPaysMoinParle.Text = "Pays où la langue sélectionnée est la moins parlée";
             this.cbPaysMoinParle.UseVisualStyleBackColor = true;
-            this.cbPaysMoinParle.CheckedChanged += new System.EventHandler(this.cbPaysMoinParle_CheckedChanged);
             // 
             // cbTotalLangue
             // 
             this.cbTotalLangue.AutoSize = true;
-            this.cbTotalLangue.Location = new System.Drawing.Point(53, 110);
+            this.cbTotalLangue.Location = new System.Drawing.Point(80, 169);
+            this.cbTotalLangue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbTotalLangue.Name = "cbTotalLangue";
-            this.cbTotalLangue.Size = new System.Drawing.Size(269, 22);
+            this.cbTotalLangue.Size = new System.Drawing.Size(438, 33);
             this.cbTotalLangue.TabIndex = 12;
             this.cbTotalLangue.Text = "Grand total de la langue séléctionnée";
             this.cbTotalLangue.UseVisualStyleBackColor = true;
-            this.cbTotalLangue.CheckedChanged += new System.EventHandler(this.cbTotalLangue_CheckedChanged);
             // 
             // cbLangue
             // 
+            this.cbLangue.AutoCheck = false;
             this.cbLangue.AutoSize = true;
-            this.cbLangue.Location = new System.Drawing.Point(22, 32);
+            this.cbLangue.Location = new System.Drawing.Point(33, 49);
+            this.cbLangue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbLangue.Name = "cbLangue";
-            this.cbLangue.Size = new System.Drawing.Size(127, 22);
+            this.cbLangue.Size = new System.Drawing.Size(206, 33);
             this.cbLangue.TabIndex = 10;
             this.cbLangue.Text = "Selon la langue";
             this.cbLangue.UseVisualStyleBackColor = true;
@@ -318,9 +338,11 @@
             this.gbRes.BackColor = System.Drawing.Color.Lavender;
             this.gbRes.Controls.Add(this.lblResultats);
             this.gbRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbRes.Location = new System.Drawing.Point(12, 365);
+            this.gbRes.Location = new System.Drawing.Point(18, 562);
+            this.gbRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbRes.Name = "gbRes";
-            this.gbRes.Size = new System.Drawing.Size(870, 258);
+            this.gbRes.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbRes.Size = new System.Drawing.Size(1305, 397);
             this.gbRes.TabIndex = 2;
             this.gbRes.TabStop = false;
             this.gbRes.Text = "3. Résulats";
@@ -330,21 +352,23 @@
             this.lblResultats.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblResultats.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultats.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblResultats.Location = new System.Drawing.Point(3, 20);
+            this.lblResultats.Location = new System.Drawing.Point(4, 31);
+            this.lblResultats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblResultats.Name = "lblResultats";
-            this.lblResultats.Size = new System.Drawing.Size(864, 235);
+            this.lblResultats.Size = new System.Drawing.Size(1297, 361);
             this.lblResultats.TabIndex = 8;
             this.lblResultats.Text = ".";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 618);
+            this.ClientSize = new System.Drawing.Size(1330, 942);
             this.Controls.Add(this.gbRes);
             this.Controls.Add(this.gbCrit);
             this.Controls.Add(this.gbNoms);
-            this.MaximumSize = new System.Drawing.Size(909, 668);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(1352, 998);
             this.Name = "Form1";
             this.Text = "Langues Parlées (par Michael-John Sakellaropoulos)";
             this.Load += new System.EventHandler(this.Form1_Load);
